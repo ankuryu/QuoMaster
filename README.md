@@ -1,6 +1,7 @@
-# vCustomers
+# QuoMaster
 
-> Simple customer manager frontend to be used with the [SlimPHP RESTful API](https://github.com/bradtraversy/slimapp)
+> Simple customer manager frontend to be used with the Backend to be Made 
+# Based on the TraversyMedia Youtube Customer Manager
 
 ## Installation
 
