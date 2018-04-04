@@ -1,7 +1,7 @@
 <template>
   <div class="edit container">
     <Alert v-if="alert" v-bind:message="alert" />
-    <h1 class="page-header">Edit Customer</h1>
+    <h1 class="page-header">Edit Quotation</h1>
     <form v-on:submit="updateCustomer">
         <div class="well">
             <h4>Customer Info</h4>
