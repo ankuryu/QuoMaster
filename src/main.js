@@ -4,11 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
-import Customers from './components/quotations'
+import quotations from './components/quotations'
 import About from './components/About'
-import Add from './components/AddQuo'
+import AddQuo from './components/AddQuo'
 import Edit from './components/Edit'
-import CustomerDetails from './components/QuoteDetails'
+import QuoteDetails from './components/QuoteDetails'
 
 Vue.use(vueResource)
 Vue.use(VueRouter)

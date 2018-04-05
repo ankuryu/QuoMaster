@@ -49,7 +49,7 @@
 <script>
     import Alert from './Alert'
     export default {
-    name: 'add',
+    name: 'addquo',
     data () {
         return {
         quotation: {},

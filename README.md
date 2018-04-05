@@ -1,6 +1,6 @@
 # QuoMaster
 
-> Simple customer manager frontend to be used with the Backend to be Made 
+> Simple Quotation manager frontend to be used with the Backend to be Made 
 # Based on the TraversyMedia Youtube Customer Manager
 
 ## Installation
@@ -15,4 +15,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-

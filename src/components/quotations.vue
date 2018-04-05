@@ -7,17 +7,17 @@
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>Quotation No</th>
             <th>Party Name</th>
+            <th>Quotation No</th>
             <th>Date</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="customer in filterBy(pname, filterInput)">
-            <td>{{customer.first_name}}</td>
-            <td>{{customer.last_name}}</td>
-            <td>{{customer.email}}</td>
+          <tr v-for="quotation in filterBy(pname, filterInput)">
+            <td>{{quotation.pname}}</td>
+            <td>{{quotation.qno}}</td>
+            <td>{{quotation.qdt}}</td>
             <td><router-link class="btn btn-default" v-bind:to="'/customer/'+customer.id">View</router-link></td>
           </tr>
         </tbody>
