@@ -111,9 +111,14 @@ app.listen(3000 , function() {
 
 
 app.get('/',(req,res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + 'dist/index.html');
+
 });
-//for getting all quotation
+//for getting all quotations
+
+app.get('/api/quotes',(req,res) => {
+
+});
 
 //  for adding a quotation
 app.post('/api/quote/add',(req,res) => {
@@ -129,3 +134,6 @@ app.delete('/api/quote/',(req,res) => {
 
 
 // for editing the quotation
+app.put('/api/quote/update/:qno',(req,res) => {
+	console.log( );
+});
