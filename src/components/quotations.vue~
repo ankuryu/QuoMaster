@@ -1,24 +1,24 @@
 <template>
-  <div class="customers container">
+  <div class="quotations container">
     <Alert v-if="alert" v-bind:message="alert" />
-    <h1 class="page-header">Manage Customers</h1>
-    <input class="form-control" placeholder="Enter Last Name" v-model="filterInput">
+    <h1 class="page-header">Manage Quotations</h1>
+    <input class="form-control" placeholder="Enter Company name" v-model="filterInput">
     <br />
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th>Quotation No</th>
+            <th>Date</th>
+            <th>Party Name</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="customer in filterBy(customers, filterInput)">
-            <td>{{customer.first_name}}</td>
-            <td>{{customer.last_name}}</td>
-            <td>{{customer.email}}</td>
-            <td><router-link class="btn btn-default" v-bind:to="'/customer/'+customer.id">View</router-link></td>
+          <tr v-for="quotation in filterBy(pname, filterInput)">
+            <td>{{quotation.qno}}</td>
+            <td>{{quotation.qdt}}</td>
+            <td>{{quotation.pname}}</td>
+            <td><router-link class="btn btn-default" v-bind:to="'/customer/'+qno">View</router-link></td>
           </tr>
         </tbody>
     </table>
@@ -28,25 +28,25 @@
 <script>
   import Alert from './Alert';
   export default {
-    name: 'customers',
+    name: 'Quotations',
     data () {
       return {
-        customers: [],
+        quotations: [],
         alert:'',
         filterInput:''
       }
     },
     methods: {
-      fetchCustomers(){
-        this.$http.get('http://slimapp/api/customers')
+      fetchQuotations(){
+        this.$http.get('http://localhost:port/api/quotations')
           .then(function(response){
-            this.customers = response.body;
+            this.quotations= response.body;
           });
       },
       filterBy(list, value){
         value = value.charAt(0).toUpperCase() + value.slice(1);
-        return list.filter(function(customer){
-          return customer.last_name.indexOf(value) > -1;
+        return list.filter(function(quotation){
+          return quotation.pname.indexOf(value) > -1;
         });
       }
     },
@@ -54,10 +54,10 @@
       if(this.$route.query.alert){
         this.alert = this.$route.query.alert;
       }
-      this.fetchCustomers();
+      this.fetchQuotations();
     },
     updated: function(){
-      this.fetchCustomers();
+      this.fetchQuotations();
     },
     components: {
       Alert

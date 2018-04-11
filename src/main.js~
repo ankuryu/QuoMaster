@@ -1,26 +1,28 @@
+/* jshint  esversion:6 */
+
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import VueRouter from 'vue-router'
-import vueResource from 'vue-resource'
-import Customers from './components/quotations'
-import About from './components/About'
-import Add from './components/AddQuo'
-import Edit from './components/Edit'
-import CustomerDetails from './components/QuoteDetails'
+import Vue from 'vue';
+import App from './App';
+import VueRouter from 'vue-router';
+import vueResource from 'vue-resource';
+import quotations from './components/quotations';
+import About from './components/About';
+import AddQuo from './components/AddQuo';
+import Edit from './components/Edit';
+import QuoteDetails from './components/QuoteDetails';
 
-Vue.use(vueResource)
-Vue.use(VueRouter)
+Vue.use(vueResource);
+Vue.use(VueRouter);
 
 const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    {path:'/', component: Customers},
+    {path:'/', component: Quotations},
     {path: '/about', component: About},
-    {path: '/add', component: Add},
-    {path: '/customer/:id', component: CustomerDetails},
+    {path: '/add', component: AddQuo},
+    {path: '/customer/:id', component: QuoteDetails},
     {path: '/edit/:id', component: Edit},
   ]
 })
@@ -47,7 +49,7 @@ new Vue({
             <li><router-link to="/about">About</router-link></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><router-link to="/add">Add Customer</router-link></li>
+            <li><router-link to="/add">Add Quotation</router-link></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
