@@ -6,7 +6,7 @@ import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
-import quotations from './components/quotations';
+import Quotations from './components/quotations';
 import About from './components/About';
 import AddQuo from './components/AddQuo';
 import Edit from './components/Edit';

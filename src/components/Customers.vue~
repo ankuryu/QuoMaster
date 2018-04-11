@@ -1,7 +1,7 @@
 <template>
   <div class="customers container">
     <Alert v-if="alert" v-bind:message="alert" />
-    <h1 class="page-header">Manage Kustomers</h1>
+    <h1 class="page-header">Manage Customers</h1>
     <input class="form-control" placeholder="Enter Last Name" v-model="filterInput">
     <br />
     <table class="table table-striped">
