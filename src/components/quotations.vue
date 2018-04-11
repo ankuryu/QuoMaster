@@ -2,23 +2,23 @@
   <div class="quotations container">
     <Alert v-if="alert" v-bind:message="alert" />
     <h1 class="page-header">Manage Quotations</h1>
-    <input class="form-control" placeholder="Enter Party name" v-model="filterInput">
+    <input class="form-control" placeholder="Enter Company name" v-model="filterInput">
     <br />
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>Party Name</th>
             <th>Quotation No</th>
             <th>Date</th>
+            <th>Party Name</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="quotation in filterBy(pname, filterInput)">
-            <td>{{quotation.pname}}</td>
             <td>{{quotation.qno}}</td>
             <td>{{quotation.qdt}}</td>
-            <td><router-link class="btn btn-default" v-bind:to="'/customer/'+customer.id">View</router-link></td>
+            <td>{{quotation.pname}}</td>
+            <td><router-link class="btn btn-default" v-bind:to="'/customer/'+qno">View</router-link></td>
           </tr>
         </tbody>
     </table>
@@ -45,8 +45,8 @@
       },
       filterBy(list, value){
         value = value.charAt(0).toUpperCase() + value.slice(1);
-        return list.filter(function(customer){
-          return customer.last_name.indexOf(value) > -1;
+        return list.filter(function(quotation){
+          return quotation.pname.indexOf(value) > -1;
         });
       }
     },
