@@ -38,7 +38,7 @@
     },
     methods: {
       fetchQuotations(){
-        this.$http.get('http://localhost:port/api/quotations')
+        this.$http.get('http://localhost:port/api/quotes')
           .then(function(response){
             this.quotations= response.body;
           });

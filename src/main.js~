@@ -6,7 +6,7 @@ import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
-import quotations from './components/quotations';
+import Quotations from './components/quotations';
 import About from './components/About';
 import AddQuo from './components/AddQuo';
 import Edit from './components/Edit';
@@ -22,7 +22,7 @@ const router = new VueRouter({
     {path:'/', component: Quotations},
     {path: '/about', component: About},
     {path: '/add', component: AddQuo},
-    {path: '/customer/:id', component: QuoteDetails},
+    {path: '/quote/:id', component: QuoteDetails},
     {path: '/edit/:id', component: Edit},
   ]
 });

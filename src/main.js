@@ -22,8 +22,8 @@ const router = new VueRouter({
     {path:'/', component: Quotations},
     {path: '/about', component: About},
     {path: '/add', component: AddQuo},
-    {path: '/customer/:id', component: QuoteDetails},
-    {path: '/edit/:id', component: Edit},
+    {path: '/quote/:id', component: QuoteDetails},
+    {path: '/edit/:id', component: Edit}
   ]
 });
 
