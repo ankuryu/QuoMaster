@@ -30,13 +30,13 @@ export default {
   },
   methods:{
       fetchQuote(qno){
-          this.$http.get('http://localhost:port/api/quote/:'+qno)
+          this.$http.get('http://localhost:port/api/quote/'+qno)
           .then(function(response){
             this.customer = response.body;
           });
       },
       deleteQuote(qno){
-          this.$http.delete('http://localhost/api/quote/:'+qno)
+          this.$http.delete('http://localhost/api/quote/'+qno)
           .then(function(response){
             this.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
           });
