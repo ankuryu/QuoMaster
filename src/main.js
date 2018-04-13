@@ -9,7 +9,7 @@ import vueResource from 'vue-resource';
 import Quotations from './components/quotations';
 import About from './components/About';
 import AddQuo from './components/AddQuo';
-//import Edit from './components/Edit';
+import Edit from './components/Edit';
 import QuoteDetails from './components/QuoteDetails';
 
 Vue.use(vueResource);
