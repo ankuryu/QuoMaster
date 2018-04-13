@@ -9,8 +9,13 @@ import vueResource from 'vue-resource';
 import Quotations from './components/quotations';
 import About from './components/About';
 import AddQuo from './components/AddQuo';
-//import Edit from './components/Edit';
+import Edit from './components/Edit';
 import QuoteDetails from './components/QuoteDetails';
+import Quote from './components/quo.vue'
+import OneQuo from './components/onequo.vue'
+import Items from './components/items.vue'
+import OneItem from './components/oneitem.vue'
+import Tnc from './components/tnc.vue'
 
 Vue.use(vueResource);
 Vue.use(VueRouter);
@@ -24,6 +29,12 @@ const router = new VueRouter({
     {path: '/add', component: AddQuo},
     {path: '/quote/:id', component: QuoteDetails},
     {path: '/edit/:id', component: Edit}
+    {path: '/onequo',component: OneQuo },
+    {path: '/items',component: Items },
+    {path: '/oneitem',component: OneItem },
+    {path: '/tnc',component: Tnc },
+    {path: '/quo',component: Quote }
+
   ]
 });
 
