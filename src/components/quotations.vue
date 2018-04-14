@@ -14,11 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="quotation in filterBy(pname, filterInput)">
+          <tr v-for="quotation in filterBy(quotations, filterInput)">
             <td>{{quotation.qno}}</td>
             <td>{{quotation.qdt}}</td>
             <td>{{quotation.pname}}</td>
-            <td><router-link class="btn btn-default" v-bind:to="'/quote/:'+qno">View</router-link></td>
+            <td><router-link class="btn btn-default" v-bind:to="'/quote/'+qno">View</router-link></td>
           </tr>
         </tbody>
     </table>
