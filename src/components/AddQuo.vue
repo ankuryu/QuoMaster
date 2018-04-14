@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label>Phone</label>
-                <input type="text" class="form-control" placeholder="Phone" v-model="quotation.phone">
+                <input type="text" class="form-control" placeholder="Phone" v-model="quotation.tel">
             </div>
         </div>
 
@@ -30,7 +30,7 @@
             <h4>Enquiry No</h4>
             <div class="form-group">
                 <label>Address</label>
-                <input type="text" class="form-control" placeholder="Enw No" v-model="customer.address">
+                <input type="text" class="form-control" placeholder="Enw No" v-model="quotation.paddr">
             </div>
             <div class="form-group">
                 <label>Enq No</label>
@@ -62,8 +62,8 @@
                 this.alert = 'Please fill in all required fields';
             } else {
                 let newQuotation= {
-		    qno: "",
-		    qdt: "",
+		    qno: "00001",
+		    qdt: "01/04/2018",
                     pname: this.quotation.pname,
                     paddr: this.quotation.paddr,
                     enqno: this.quotation.enqno,
@@ -71,7 +71,7 @@
                     qamt: 0,
                 }
 
-                this.$http.post('http://localhost:port/api/quote/add', newQuotation)
+                this.$http.post('http://localhost:8000/api/quote/add', newQuotation)
                     .then(function(response){
                         this.$router.push({path: '/', query: {alert: 'Quotation Added'}});
                     });

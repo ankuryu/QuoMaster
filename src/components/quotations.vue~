@@ -14,11 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="quotation in filterBy(pname, filterInput)">
+          <tr v-for="quotation in filterBy(quotations, filterInput)">
             <td>{{quotation.qno}}</td>
             <td>{{quotation.qdt}}</td>
             <td>{{quotation.pname}}</td>
-            <td><router-link class="btn btn-default" v-bind:to="'/customer/'+qno">View</router-link></td>
+            <td><router-link class="btn btn-default" v-bind:to="'/quote/'+qno">View</router-link></td>
           </tr>
         </tbody>
     </table>
@@ -38,7 +38,7 @@
     },
     methods: {
       fetchQuotations(){
-        this.$http.get('http://localhost:port/api/quotes')
+        this.$http.get('http://localhost:8000/api/quotes')
           .then(function(response){
             this.quotations= response.body;
           });

@@ -3,13 +3,14 @@
 const fs = require('fs');
 const  express =  require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const sqlite3  = require("sqlite3").verbose() ;
 
 
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(cors());
 
 
 const Sequelize = require('sequelize');
@@ -68,7 +69,7 @@ const Quoitm = sequel.define('quoitm',
 		freezeTableName: true,
 	timestamps: false});
 
-const Quotc= sequel.define('quotc',
+const Quotc = sequel.define('quotc',
 	{
 		id: {type:Sequelize.INTEGER,primaryKey: true },
 		qno: {type: Sequelize.STRING},
@@ -91,6 +92,9 @@ const Quotc= sequel.define('quotc',
 	timestamps: false});
 sequel.sync().then(function(){
 	console.log("tables ready");
+	app.listen(8000,function() { 
+		console.log("listening on port 8000");
+	});
 }) ;
 /*	Quotop.create({
 		qno: '00008',
@@ -104,11 +108,11 @@ sequel.sync().then(function(){
 			sequel.close().then(()=>{console.log("connection closed");});
 		});
 	});
-*/
-app.listen(3000 , function() {
- console.log( "Listening on port 3000");
-});
 
+app.listen(8000 , function() {
+ console.log( "Listening on port 8000");
+});
+*/
 
 app.get('/',(req,res) => {
   res.sendFile(__dirname + '/dist/index.html');
@@ -118,6 +122,10 @@ app.get('/',(req,res) => {
 
 app.get('/api/quotes',(req,res) => {
 
+   Quotop.findAll({attributes: ['qno','qdt','pname']}).then( quotes => {
+	   console.log( quotes.pname);
+	   res.send(quotes)  ;
+   });
 });
 
 //  for adding a quotation

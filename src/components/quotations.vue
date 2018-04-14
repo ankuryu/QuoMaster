@@ -38,8 +38,9 @@
     },
     methods: {
       fetchQuotations(){
-        this.$http.get('http://localhost:port/api/quotes')
+        this.$http.get('http://localhost:8000/api/quotes')
           .then(function(response){
+		console.log(response);
             this.quotations= response.body;
           });
       },
