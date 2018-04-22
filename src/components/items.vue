@@ -1,17 +1,17 @@
 <template>
-  <div class="itms container">
-    <router-link to="/onequo">Back</router-link>
-    <router-link to="/oneitem">Edit Item</router-link>
-    <h1 class="page-header">Items of Quotation</h1>
-  </div>
+<div class="itms container">
+  <router-link to="/onequo">Back</router-link>
+  <router-link to="/oneitem">Edit Item</router-link>
+  <h1 class="page-header">Items of Quotation</h1>
+</div>
 </template>
 
 <script>
 export default {
   name: 'about',
-  data () {
+  data() {
     return {
-      
+
     }
   }
 }
@@ -21,4 +21,3 @@ export default {
 <style scoped>
 
 </style>
-
