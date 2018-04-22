@@ -212,8 +212,8 @@ app.get('/api/quotes', (req, res,next) => {
 
 //  for adding a quotation
 app.post('/api/quote/add', (req, res,next) => {
-  console.log(req);
-  var quote = req.quote ;
+  console.log(req.body.quote);
+  var quote = req.body.quote ;
   Quotop.create(quote).then(console.log("Added Quote"))
 });
 
