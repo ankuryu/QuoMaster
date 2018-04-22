@@ -58,7 +58,7 @@
     },
     methods: {
         addQuotation(e){
-            if(!this.quotation.pname|| !this.quotation.paddr|| !this.quotation.dt){
+            if(!this.quotation.pname|| !this.quotation.paddr){
                 this.alert = 'Please fill in all required fields';
             } else {
                 let newQuotation= {

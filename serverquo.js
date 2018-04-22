@@ -192,27 +192,36 @@ app.get('/', (req, res) => {
 });
 //for getting all quotations
 
-app.get('/api/quotes', (req, res) => {
+app.get('/api/quotes', (req, res,next) => {
 
   Quotop.findAll({
     attributes: ['qno', 'qdt', 'pname']
   }).then(quotes => {
-    console.log(quotes.pname);
-    res.send(quotes);
+    var qnew = [];
+    for(i=0 ; i < quotes.length ; i++){
+      quo = quotes[i];
+      if(quo.pname != null){
+         qnew.push(quo)
+      }
+    }
+    console.log("get quotations")
+    console.log(qnew[0].qno);
+    res.send(qnew);
   });
 });
 
 //  for adding a quotation
-app.post('/api/quote/add', (req, res) => {
+app.post('/api/quote/add', (req, res,next) => {
+  console.log(req);
   var quote = req.quote ;
   Quotop.create(quote).then(console.log("Added Quote"))
 });
 
 // for deleting the quotation
 
-app.delete('/api/quote/', (req, res) => {});
+app.delete('/api/quote/', (req, res,next) => {});
 
 // for editing the quotation
-app.put('/api/quote/update/:qno', (req, res) => {
+app.put('/api/quote/update/:qno', (req, res,next) => {
   console.log();
 });

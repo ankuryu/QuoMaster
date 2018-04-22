@@ -18,7 +18,7 @@
             <td>{{quotation.qno}}</td>
             <td>{{quotation.qdt}}</td>
             <td>{{quotation.pname}}</td>
-            <td><router-link class="btn btn-default" v-bind:to="'/quote/'+qno">View</router-link></td>
+            <td><router-link class="btn btn-default" v-bind:to="'/quote/'+quotation.qno">View</router-link></td>
           </tr>
         </tbody>
     </table>
@@ -33,7 +33,8 @@
       return {
         quotations: [],
         alert:'',
-        filterInput:''
+        filterInput:'',
+        counter:0
       }
     },
     methods: {
@@ -52,15 +53,19 @@
       }
     },
     created: function(){
+      console.log("created")
       if(this.$route.query.alert){
         this.alert = this.$route.query.alert;
       }
       this.fetchQuotations();
     },
     updated: function(){
+      this.counter++
+      console.log(this.counter);
+//      debugger ;
       this.fetchQuotations();
     },
-    components: {
+    omponents: {
       Alert
     }
   }
