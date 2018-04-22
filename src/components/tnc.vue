@@ -1,16 +1,16 @@
 <template>
-  <div class="tnc container">
-    <router-link to="/onequo">Back</router-link>
-    <h1 class="page-header">Terms n Conditions</h1>
-  </div>
+<div class="tnc container">
+  <router-link to="/onequo">Back</router-link>
+  <h1 class="page-header">Terms n Conditions</h1>
+</div>
 </template>
 
 <script>
 export default {
   name: 'about',
-  data () {
+  data() {
     return {
-      
+
     }
   }
 }
@@ -20,4 +20,3 @@ export default {
 <style scoped>
 
 </style>
-
