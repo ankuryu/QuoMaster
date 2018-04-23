@@ -67,7 +67,7 @@ export default {
     this.counter++
       console.log(this.counter);
     //      debugger ;
-    this.fetchQuotations();
+    //this.fetchQuotations();
   },
   omponents: {
     Alert

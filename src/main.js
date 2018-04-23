@@ -41,6 +41,11 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   router,
+    http: {
+            emulateJSON: true,
+            emulateHTTP: true
+    },
+	
   template: `
     <div id="app">
       <nav class="navbar navbar-default">

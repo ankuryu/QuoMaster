@@ -61,6 +61,8 @@ export default {
       if (!this.quotation.pname || !this.quotation.paddr) {
         this.alert = 'Please fill in all required fields';
       } else {
+         this.quotation.enqno = "zz";
+	 this.quotation.enqdt = "2017-11-01";
         let newQuotation = {
           qno: "00001",
           qdt: "01/04/2018",
@@ -70,16 +72,20 @@ export default {
           enqdt: this.quotation.enqdt,
           qamt: 0,
         }
-
-        this.$http.post('http://localhost:8000/api/quote/add', newQuotation)
+	console.log(newQuotation);
+        this.$http.post('http://localhost:8000/api/quote/add','data=newQuotation', 
+		{http:{emulateJSON:true,emulateHTTP:true}}
+		)
           .then(function(response) {
+            console.log('post finished');
             this.$router.push({
               path: '/',
               query: {
                 alert: 'Quotation Added'
               }
             });
-          });
+          }).catch(error=> {
+console.log(error)});
 
         e.preventDefault();
       }
