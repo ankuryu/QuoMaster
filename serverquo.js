@@ -187,7 +187,7 @@ app.listen(8000 , function() {
 */
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/dist/index.html');
+  res.sendFile(_dirname + '/dist/index.html');
 
 });
 //for getting all quotations
@@ -212,8 +212,8 @@ app.get('/api/quotes', (req, res,next) => {
 
 //  for adding a quotation
 app.post('/api/quote/add', (req, res,next) => {
-	console.log("para:");
-  console.log(req.body);
+	console.log("data:");
+  console.log(req);
   var quote = req.body.quote ;
   var qt2 = {qno:"00005",qdt:"2018-11-01",pname:"Maruti",paddr:"jango",enqno:"01",enqdt:"2018-11-01",qamt:0}
   Quotop.create(qt2).then(console.log("Added Quote"))

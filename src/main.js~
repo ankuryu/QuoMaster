@@ -6,6 +6,8 @@ import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
 import vueResource from 'vue-resource';
+//import Axios  from  'axios';
+//import VueAxios from 'vue-axios' ;
 import Quotations from './components/quotations';
 import About from './components/About';
 import AddQuo from './components/AddQuo';
@@ -16,8 +18,9 @@ import OneQuo from './components/onequo.vue';
 import Items from './components/items.vue';
 import OneItem from './components/oneitem.vue';
 import Tnc from './components/tnc.vue';
-
-Vue.use(vueResource);
+//Vue.use(vueResource) ;
+Vue.use(VueAxios,Axios);
+//Vue.use(Axios);
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -39,12 +42,13 @@ const router = new VueRouter({
 });
 
 /* eslint-disable no-new */
-new Vue({
+
+ var  vm = new Vue({
   router,
     http: {
             emulateJSON: true,
             emulateHTTP: true
-    }
+    },
 	
   template: `
     <div id="app">

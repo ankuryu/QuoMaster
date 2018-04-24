@@ -28,8 +28,9 @@
   </table>
 </div>
 </template>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
+//import Axios from 'axios';
 import Alert from './Alert';
 export default {
   name: 'Quotations',
@@ -43,16 +44,18 @@ export default {
   },
   methods: {
     fetchQuotations() {
+      var vu = this
       this.$http.get('http://localhost:8000/api/quotes')
         .then(function(response) {
-          console.log(response);
-          this.quotations = response.body;
+debugger ;
+          vu.quotations = response.data ;
+          console.log(vu.quotations);
         });
     },
     filterBy(list, value) {
       value = value.charAt(0).toUpperCase() + value.slice(1);
       return list.filter(function(quotation) {
-        return quotation.pname.indexOf(value) > -1;
+       return quotation.pname.indexOf(value) > -1;
       });
     }
   },
@@ -67,7 +70,7 @@ export default {
     this.counter++
       console.log(this.counter);
     //      debugger ;
-    this.fetchQuotations();
+    //this.fetchQuotations();
   },
   omponents: {
     Alert

@@ -73,18 +73,21 @@ export default {
           qamt: 0,
         }
 	console.log(newQuotation);
-        this.$http.post('http://localhost:8000/api/quote/add','data=newQuotation', 
+       var vm = this;
+        debugger;
+        vm.$http.post('http://localhost:8000/api/quote/add',{params:newQuotation}, 
 		{http:{emulateJSON:true,emulateHTTP:true}}
 		)
           .then(function(response) {
+		console.log(newQuotation);
             console.log('post finished');
-            this.$router.push({
+            vm.$router.push({
               path: '/',
               query: {
                 alert: 'Quotation Added'
               }
             });
-          }).catch(error=> {
+          }).catch((error) => {
 console.log(error)});
 
         e.preventDefault();
