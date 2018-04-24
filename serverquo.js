@@ -219,11 +219,34 @@ app.post('/api/quote/add', (req, res,next) => {
 	res.end('OK');
 });
 
-// for deleting the quotation
+// for deleting the quotation with identity of id
 
-app.delete('/api/quote/', (req, res,next) => {});
+app.delete('/api/quotes/:id', (req, res,next) => {
+	var qid = req.params.id ;
+  console.log(qid);
+	Quotop.destroy({"id":qid})
+		.then( (response) =>{})
+		.catch( (error) => {});
 
-// for editing the quotation
-app.put('/api/quote/update/:qno', (req, res,next) => {
-  console.log();
+
 });
+
+// for Updating the quotation with an id : id
+app.put('/api/quotes/:id', (req, res,next) => {
+	var qid = req.params.id ;
+  console.log(qid);
+	Quotop.update({"id":qid})
+		.then( (response) =>{})
+		.catch( (error) => {});
+});
+
+
+// for getting the quotation with an id : id
+app.get('/api/quotes/:id', (req, res,next) => {
+	var qid = req.params.id ;
+  console.log(qid);
+	Quotop.findOne({"id":qid})
+		.then( (response) =>{})
+		.catch( (error) => {});
+});
+
