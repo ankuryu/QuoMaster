@@ -73,8 +73,9 @@ export default {
           qamt: 0,
         }
 	console.log(newQuotation);
-       var vm = this
-        vm.$http.post('http://localhost:8000/api/quote/add',{params:newQuotation}, 
+       var vm = this;
+        debugger;
+        vm.$http.post('http://localhost:8000/api/quote/add',qs.stringify(newQuotation), 
 		{http:{emulateJSON:true,emulateHTTP:true}}
 		)
           .then(function(response) {

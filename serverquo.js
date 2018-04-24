@@ -212,11 +212,10 @@ app.get('/api/quotes', (req, res,next) => {
 
 //  for adding a quotation
 app.post('/api/quote/add', (req, res,next) => {
-	console.log("data:");
-  console.log(req);
-  var quote = req.body.quote ;
+  var quote = req.body;
+	console.log(quote);
   var qt2 = {qno:"00005",qdt:"2018-11-01",pname:"Maruti",paddr:"jango",enqno:"01",enqdt:"2018-11-01",qamt:0}
-  Quotop.create(qt2).then(console.log("Added Quote"))
+  Quotop.create(quote).then(console.log("Added Quote"))
 	res.end('OK');
 });
 

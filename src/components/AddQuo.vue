@@ -48,6 +48,7 @@
 
 <script>
 import Alert from './Alert'
+import qs from 'qs';
 export default {
   name: 'addquo',
   data() {
@@ -75,7 +76,7 @@ export default {
 	console.log(newQuotation);
        var vm = this;
         debugger;
-        vm.$http.post('http://localhost:8000/api/quote/add',{params:newQuotation}, 
+        vm.$http.post('http://localhost:8000/api/quote/add',qs.stringify(newQuotation), 
 		{http:{emulateJSON:true,emulateHTTP:true}}
 		)
           .then(function(response) {
