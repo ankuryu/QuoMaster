@@ -1,6 +1,7 @@
 {
   "name": "vquotation",
   "version": "1.0.0",
+  "homepage":"https://github.com/ankuryu/quomaster",
   "description": "Simple Quotation manager",
   "author": "Ankuryu <pmco89@gmail.com>",
   "private": true,
