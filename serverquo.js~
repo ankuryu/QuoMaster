@@ -9,6 +9,7 @@ const sqlite3 = require("sqlite3").verbose();
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
+//app.use(bodyParser.json());
 app.use(cors());
 
 const Sequelize = require('sequelize');
@@ -236,7 +237,7 @@ app.delete('/api/quotes/:id', (req, res,next) => {
 // for Updating the quotation with an id : id
 app.put('/api/quotes/:id', (req, res,next) => {
 	var qid = req.params.id ;
-	conosole.log(req.params);
+	console.log(req.params);
   console.log(qid);
 	console.log(req.body);
 	Quotop.update({pname:"jangoSushi"},{where:{"id":qid}})
