@@ -11,6 +11,8 @@ export default {
   name: 'about',
   data() {
     return {
+    items:[],
+    item:''
 
     }
   }
