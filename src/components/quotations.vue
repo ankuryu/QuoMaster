@@ -47,7 +47,6 @@ export default {
       var vu = this
       this.$http.get('http://localhost:8000/api/quotes')
         .then(function(response) {
-debugger ;
           vu.quotations = response.data ;
           console.log(vu.quotations);
         });
