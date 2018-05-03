@@ -3,18 +3,49 @@
   <router-link to="/onequo">Back</router-link>
   <router-link to="/oneitem">Edit Item</router-link>
   <h1 class="page-header">Items of Quotation</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr v-for="item in items">
+        <td>{{}}</td>
+        <td>{{}}</td>
+        <td>{{}}</td>
+
+        <td>
+          <router-link class="btn btn-default" v-bind:to="'/quote/'+quotation.qno">View</router-link>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'about',
+  name: 'items',
   data() {
     return {
- Â   items:[],
- Â   item:''
+     items:[],
+     item:''
 
-    }
+    },
+  methods: {
+    fetchItems() {
+      var vu = this
+      this.$http.get('http://localhost:8000/api/items')
+        .then(function(response) {
+          vu.items= response.data ;
+          console.log(vu.items);
+        });
+    } // end of fetchitems
   }
 }
 </script>

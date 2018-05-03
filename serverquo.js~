@@ -8,7 +8,7 @@ const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
 const Sequelize = require('sequelize');
@@ -224,8 +224,10 @@ app.post('/api/quote/add', (req, res,next) => {
 app.delete('/api/quotes/:id', (req, res,next) => {
 	var qid = req.params.id ;
   console.log(qid);
-	Quotop.findOne({"id":qid})
-		.then( (response) =>{})
+	Quotop.destroy({where:{"id":qid}})
+		.then( (response) =>{	
+			res.end('OK')
+		})
 		.catch( (error) => {});
 
 
@@ -234,10 +236,14 @@ app.delete('/api/quotes/:id', (req, res,next) => {
 // for Updating the quotation with an id : id
 app.put('/api/quotes/:id', (req, res,next) => {
 	var qid = req.params.id ;
+	conosole.log(req.params);
   console.log(qid);
-	Quotop.findOne({"id":qid})
-		.then( (response) =>{})
-		.catch( (error) => {});
+	console.log(req.body);
+	Quotop.update({pname:"jangoSushi"},{where:{"id":qid}})
+		.then( (response) =>{
+		res.end('OK')
+		})
+		.catch( (error) => {console.log(error)});
 });
 
 
@@ -245,8 +251,10 @@ app.put('/api/quotes/:id', (req, res,next) => {
 app.get('/api/quotes/:id', (req, res,next) => {
 	var qid = req.params.id ;
   console.log(qid);
-	Quotop.findOne({"id":qid})
-		.then( (response) =>{})
+	Quotop.findOne({where:{"id":qid}})
+		.then( (response) =>{
+			res.send(response)	
+		})
 		.catch( (error) => {});
 });
 

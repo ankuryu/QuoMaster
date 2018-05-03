@@ -72,7 +72,7 @@ debugger ;
     //      debugger ;
     //this.fetchQuotations();
   },
-  omponents: {
+  components: {
     Alert
   }
 }
