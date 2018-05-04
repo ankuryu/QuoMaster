@@ -33,9 +33,9 @@ export default {
   name: 'items',
   data() {
     return {
-     items:[],
-     item:''
-
+	items:[],
+	item:''
+    }
     },
   methods: {
     fetchItems() {
