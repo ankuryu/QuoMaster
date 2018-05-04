@@ -21,7 +21,7 @@
         <td>{{quotation.pname}}</td>
 
         <td>
-          <router-link class="btn btn-default" v-bind:to="'/quote/'+quotation.qno">View</router-link>
+          <router-link class="btn btn-default" v-bind:to="'/quote/'+quotation.id">View</router-link>
         </td>
       </tr>
     </tbody>
