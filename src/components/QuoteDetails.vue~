@@ -1,19 +1,20 @@
 <template>
   <div class="details container">
     <router-link to="/">Back</router-link>
-    <h1 class="page-header">{{quote.qno}} {{quote.pname}}
+    <h1 class="page-header">{{quote.qno}} {{quote.pname}} 
         <span class="pull-right">
                  <router-link class="btn btn-primary" v-bind:to="'/edit/'+quote.id">Edit</router-link>
                  <button class="btn btn-danger" v-on:click="deleteQuote(quote.id)">Delete</button>
             </span>
     </h1>
+    <p> ID : {{quote.id}} </p>
     <ul class="list-group">
             <li class="list-group-item"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span> {{quote.phone}}</li>
             <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{quote.email}}</li>
         </ul>
 
         <ul class="list-group">
-            <li class="list-group-item"> {{quote.address}}</li>
+            <li class="list-group-item"> {{quote.paddr}}</li>
                  <li class="list-group-item">{{quote.enqno}}</li>
                  <li class="list-group-item">{{quote.enqdt}}</li>
         </ul>
@@ -23,25 +24,26 @@
 <script>
 export default {
   name: 'quotedetails',
-  data () {
+  data() {
     return {
 	    quote:{} 
     }
   },
   methods:{
       fetchQuote(qno){
-	      console.log(qno)
+	      var vu = this ;
+	   var  tmp1 = this.quote;
 	  this.$http.get('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
-		  console.log( response.body);
-            this.quote= response.body;
+            vu.quote = response.data;
+		  console.log( tmp1 );
 	  }).catch( (error)=>{
 	    console.log(error);
 //            this.$router.push({path: '/', query: {alert: 'Error in getting data'}});
 	  });
       },
       deleteQuote(qno){
-              this.$http.delete('http://localhost/api/quotes/'+qno)
+              this.$http.delete('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
             this.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
           });
