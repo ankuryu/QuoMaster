@@ -3,8 +3,8 @@
     <router-link to="/">Back</router-link>
     <h1 class="page-header">{{quote.qno}} {{quote.pname}}
         <span class="pull-right">
-            <router-link class="btn btn-primary" v-bind:to="'/edit/'+quote.id">Edit</router-link>
-            <button class="btn btn-danger" v-on:click="deleteQuote(quote.id)">Delete</button>
+              �  <router-link class="btn btn-primary" v-bind:to="'/edit/'+quote.id">Edit</router-link>
+              �  <button class="btn btn-danger" v-on:click="deleteQuote(quote.id)">Delete</button>
             </span>
     </h1>
     <ul class="list-group">
@@ -14,8 +14,8 @@
 
         <ul class="list-group">
             <li class="list-group-item"> {{quote.address}}</li>
-            <li class="list-group-item">{{quote.enqno}}</li>
-            <li class="list-group-item">{{quote.enqdt}}</li>
+                 <li class="list-group-item">{{quote.enqno}}</li>
+                 <li class="list-group-item">{{quote.enqdt}}</li>
         </ul>
   </div>
 </template>
@@ -30,19 +30,26 @@ export default {
   },
   methods:{
       fetchQuote(qno){
-          this.$http.get('http://localhost:port/api/quote/'+this.quote.id)
+	      console.log(qno)
+	  this.$http.get('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
-            this.customer = response.body;
-          });
+		  console.log( response.body);
+            this.quote= response.body;
+	  }).catch( (error)=>{
+	    console.log(error);
+//            this.$router.push({path: '/', query: {alert: 'Error in getting data'}});
+	  });
       },
       deleteQuote(qno){
-          this.$http.delete('http://localhost/api/quote/'+this.quote.id)
+              this.$http.delete('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
             this.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
           });
       }
   },
   created: function(){
+	  console.log("being created");
+	  console.log( this.$route.params.id);
       this.fetchQuote(this.$route.params.id);
   }
 }
