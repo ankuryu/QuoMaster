@@ -58,9 +58,10 @@ export default {
   },
   methods: {
     fetchQuote(id) {
+	    var vu = this
       this.$http.get('http://localhost:8000/api/quote/' + id)
         .then(function(response) {
-          this.quote = response.body;
+          vu.quote = response.body;
         });
     },
     updateQuote(e) {

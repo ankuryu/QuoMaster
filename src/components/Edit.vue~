@@ -82,7 +82,7 @@ export default {
             this.$router.push({
               path: '/',
               query: {
-                alert: 'Customer Updated'
+                alert: 'Quotation Updated'
               }
             });
           });
