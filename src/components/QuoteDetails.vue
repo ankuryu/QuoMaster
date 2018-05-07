@@ -36,6 +36,7 @@ export default {
 	  this.$http.get('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
             vu.quote = response.data;
+		  console.log("in quote details");
 		  console.log( vu.quote);
 	  }).catch( (error)=>{
 	    console.log(error);
@@ -43,9 +44,10 @@ export default {
 	  });
       },
       deleteQuote(qno){
+	      var vu = this ;
               this.$http.delete('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
-            this.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
+            vu.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
           });
       }
   },

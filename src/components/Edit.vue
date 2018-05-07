@@ -2,7 +2,7 @@
 <div class="edit container">
   <Alert v-if="alert" v-bind:message="alert" />
   <h1 class="page-header">Edit Quotation</h1>
-  <form v-on:submit="updateQuoote">
+  <form v-on:submit="updateQuote">
     <div class="well">
       <h4>QuoteInfo</h4>
       <div class="form-group">
@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label>Addrese</label>
-        <input type="text" class="form-control" placeholder="Address" v-model="quote.addr">
+        <input type="text" class="form-control" placeholder="Address" v-model="quote.paddr">
       </div>
     </div>
     <div class="well">
@@ -28,10 +28,6 @@
 
     <div class="well">
       <h4>Quote Details</h4>
-      <div class="form-group">
-        <label>Address</label>
-        <input type="text" class="form-control" placeholder="Address" v-model="quote.address">
-      </div>
       <div class="form-group">
         <label>Enq No</label>
         <input type="text" class="form-control" placeholder="Enq No" v-model="quote.enqno">
@@ -59,28 +55,28 @@ export default {
   methods: {
     fetchQuote(id) {
 	    var vu = this
-      this.$http.get('http://localhost:8000/api/quote/' + id)
+      this.$http.get('http://localhost:8000/api/quotes/' + id)
         .then(function(response) {
-          vu.quote = response.body;
+          vu.quote = response.data;
         });
     },
     updateQuote(e) {
-      if (!this.quote.pname || !this.quote.last_name || !this.quote.email) {
+      if (!this.quote.pname || !this.quote.paddr || !this.quote.email) {
         this.alert = 'Please fill in all required fields';
       } else {
-        let updQute = {
-          first_name: this.quote.pname,
-          last_name: this.quote.addr,
+        let updQuote = {
+          pname: this.quote.pname,
+          paddr: this.quote.paddr,
           phone: this.quote.phone,
           email: this.quote.email,
-          address: this.quote.address,
-          city: this.quote.enqno,
-          state: this.quote.enqdt
+          enqno: this.quote.enqno,
+          enqdt: this.quote.enqdt
         }
-
-        this.$http.put('http://localhost:8000/api/quote/update/' + this.$route.params.id, updQuote)
+	var vu = this ;
+        this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
           .then(function(response) {
-            this.$router.push({
+		  
+            vu.$router.push({
               path: '/',
               query: {
                 alert: 'Quotation Updated'
