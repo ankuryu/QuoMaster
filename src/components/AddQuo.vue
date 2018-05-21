@@ -81,13 +81,13 @@ export default {
 /*        vm.$http.post('http://localhost:8000/api/quote/add',qs.stringify(newQuotation), 
 		{http:{emulateJSON:true,emulateHTTP:true}}
 		) */
-	      wh = window.location.hostname ;
-	      wp = window.location.port ;
-	      urladdr = 'http://' + wh + wp + '/api/quote/add'
-	      //  vm.$http.post('http://localhost:8000/api/quote/add',(newQuotation)  
-	)	
+var	      wh = window.location.hostname ;
+var	      wp = window.location.port ;
+	      wp = ":8000"
+var	      urladdr = 'http://' + wh + wp + '/api/quote/add';
+	      //  vm.$http.post('http://localhost:8000/api/quote/add',(newQuotation) ) 
+		
 		vm.$http.post(urladdr,(newQuotation))
-      
           .then(function(response) {
 		console.log(newQuotation);
             console.log('post finished');

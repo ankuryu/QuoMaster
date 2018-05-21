@@ -55,9 +55,10 @@ export default {
   methods: {
     fetchQuote(id) {
 	    var vu = this
-	      wh = window.location.hostname ;
-	      wp = window.location.port ;
-		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
+var	      wh = window.location.hostname ;
+var	      wp = window.location.port ;
+	     wp = ":8000";
+var		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
       //this.$http.get('http://localhost:8000/api/quotes/' + id)
       this.$http.get(urladdr)
         .then(function(response) {
@@ -77,9 +78,10 @@ export default {
           enqdt: this.quote.enqdt
         }
 	var vu = this ;
-      wh = window.location.hostname ;
-      wp = window.location.port ;
-	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
+var      wh = window.location.hostname ;
+var      wp = window.location.port ;
+	      wp : ":8000";
+var	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
        // this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
 
 	this.$http.put(urladdr, updQuote)     
