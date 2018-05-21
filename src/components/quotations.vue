@@ -45,7 +45,11 @@ export default {
   methods: {
     fetchQuotations() {
       var vu = this
-      this.$http.get('http://localhost:8000/api/quotes')
+      wh = window.location.hostname ;
+      wp = window.location.port ;
+	urladdr = "http://" + wp + wh + "/api/quotes"
+      //this.$http.get('http://localhost:8000/api/quotes')
+      this.$http.get(urladdr);
         .then(function(response) {
           vu.quotations = response.data ;
           console.log(vu.quotations);

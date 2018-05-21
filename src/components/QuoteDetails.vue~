@@ -32,10 +32,14 @@ export default {
   methods:{
       fetchQuote(qno){
 	      var vu = this ;
+	      wh = window.location.hostname ;
+	      wp = window.location.port ;
+		urladdr = "http://" + wp + wh + "/api/quotes/" + qno
 	   var  tmp1 = this.quote;
 	  this.$http.get('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
             vu.quote = response.data;
+		  console.log("in quote details");
 		  console.log( vu.quote);
 	  }).catch( (error)=>{
 	    console.log(error);

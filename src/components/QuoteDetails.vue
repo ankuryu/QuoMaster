@@ -32,6 +32,9 @@ export default {
   methods:{
       fetchQuote(qno){
 	      var vu = this ;
+	      wh = window.location.hostname ;
+	      wp = window.location.port ;
+		urladdr = "http://" + wp + wh + "/api/quotes/" + qno
 	   var  tmp1 = this.quote;
 	  this.$http.get('http://localhost:8000/api/quotes/'+qno)
           .then(function(response){
@@ -45,7 +48,11 @@ export default {
       },
       deleteQuote(qno){
 	      var vu = this ;
-              this.$http.delete('http://localhost:8000/api/quotes/'+qno)
+              //this.$http.delete('http://localhost:8000/api/quotes/'+qno)
+	      wh = window.location.hostname ;
+	      wp = window.location.port ;
+		urladdr = "http://" + wp + wh + "/api/quotes/" + qno
+              this.$http.delete(urladdr)
           .then(function(response){
             vu.$router.push({path: '/', query: {alert: 'Quotation Deleted'}});
           });

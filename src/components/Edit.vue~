@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <label>Addrese</label>
-        <input type="text" class="form-control" placeholder="Address" v-model="quote.addr">
+        <input type="text" class="form-control" placeholder="Address" v-model="quote.paddr">
       </div>
     </div>
     <div class="well">
@@ -28,10 +28,6 @@
 
     <div class="well">
       <h4>Quote Details</h4>
-      <div class="form-group">
-        <label>Address</label>
-        <input type="text" class="form-control" placeholder="Address" v-model="quote.address">
-      </div>
       <div class="form-group">
         <label>Enq No</label>
         <input type="text" class="form-control" placeholder="Enq No" v-model="quote.enqno">
@@ -59,7 +55,11 @@ export default {
   methods: {
     fetchQuote(id) {
 	    var vu = this
-      this.$http.get('http://localhost:8000/api/quotes/' + id)
+	      wh = window.location.hostname ;
+	      wp = window.location.port ;
+		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
+      //this.$http.get('http://localhost:8000/api/quotes/' + id)
+      this.$http.get(urladdr)
         .then(function(response) {
           vu.quote = response.data;
         });
@@ -70,16 +70,20 @@ export default {
       } else {
         let updQuote = {
           pname: this.quote.pname,
-          pname: this.quote.paddr,
+          paddr: this.quote.paddr,
           phone: this.quote.phone,
           email: this.quote.email,
           enqno: this.quote.enqno,
           enqdt: this.quote.enqdt
         }
 	var vu = this ;
-        this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
+      wh = window.location.hostname ;
+      wp = window.location.port ;
+	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
+       // this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
+
+	this.$http.put(urladdr, updQuote)     
           .then(function(response) {
-		  
             vu.$router.push({
               path: '/',
               query: {

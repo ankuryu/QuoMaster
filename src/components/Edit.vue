@@ -55,7 +55,11 @@ export default {
   methods: {
     fetchQuote(id) {
 	    var vu = this
-      this.$http.get('http://localhost:8000/api/quotes/' + id)
+	      wh = window.location.hostname ;
+	      wp = window.location.port ;
+		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
+      //this.$http.get('http://localhost:8000/api/quotes/' + id)
+      this.$http.get(urladdr)
         .then(function(response) {
           vu.quote = response.data;
         });
@@ -73,9 +77,13 @@ export default {
           enqdt: this.quote.enqdt
         }
 	var vu = this ;
-        this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
+      wh = window.location.hostname ;
+      wp = window.location.port ;
+	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
+       // this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
+
+	this.$http.put(urladdr, updQuote)     
           .then(function(response) {
-		  
             vu.$router.push({
               path: '/',
               query: {

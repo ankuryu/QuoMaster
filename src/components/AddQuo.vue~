@@ -81,9 +81,9 @@ export default {
 /*        vm.$http.post('http://localhost:8000/api/quote/add',qs.stringify(newQuotation), 
 		{http:{emulateJSON:true,emulateHTTP:true}}
 		) */
-	        vm.$http.post('http://localhost:8000/api/quote/add',qs.stringify(newQuotation)  
+	        vm.$http.post('http://localhost:8000/api/quote/add',(newQuotation)  
+	)	
 		
-		)
       
           .then(function(response) {
 		console.log(newQuotation);
