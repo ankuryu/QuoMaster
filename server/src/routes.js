@@ -1,4 +1,4 @@
-/*const AuthenticationController = require('./controllers/AuthenticationController')
+/* const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const SongsController = require('./controllers/SongsController')
 const BookmarksController = require('./controllers/BookmarksController')
@@ -6,25 +6,26 @@ const HistoriesController = require('./controllers/HistoriesController')
 
 const isAuthenticated = require('./policies/isAuthenticated')
 */
-
+const QuotesController = require('./controllers/QuotesController.js')
 
 module.exports = (app) => {
+  /*
   app.post('/register',
     AuthenticationControllerPolicy.register,
     AuthenticationController.register)
   app.post('/login',
     AuthenticationController.login)
-
+*/
   app.get('/quotes',
-    SongsController.index)
+    QuotesController.index)
   app.get('/quotes/:qno',
-    SongsController.show)
+    QuotesController.show)
   app.put('/quotes/:qno',
-    SongsController.put)
+    QuotesController.put)
   app.post('/quotes',
-    SongsController.post)
+    QuotesController.post)
   app.delete('/quotes/:qno',
-    SongsController.remove)
+    QuotesController.remove)
 
   app.get('/bookmarks',
     isAuthenticated,
@@ -33,7 +34,7 @@ module.exports = (app) => {
     isAuthenticated,
     BookmarksController.post)
   app.delete('/bookmarks/:bookmarkId',
-    isAuthenticated,  
+    isAuthenticated,
     BookmarksController.remove)
 
   app.get('/histories',
