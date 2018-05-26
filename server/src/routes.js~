@@ -15,16 +15,14 @@ module.exports = (app) => {
   app.post('/login',
     AuthenticationController.login)
 
-  app.get('/quotes',
+  app.get('/songs',
     SongsController.index)
-  app.get('/quotes/:qno',
+  app.get('/songs/:songId',
     SongsController.show)
-  app.put('/quotes/:qno',
+  app.put('/songs/:songId',
     SongsController.put)
-  app.post('/quotes',
+  app.post('/songs',
     SongsController.post)
-  app.delete('/quotes/:qno',
-    SongsController.remove)
 
   app.get('/bookmarks',
     isAuthenticated,
