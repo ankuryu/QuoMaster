@@ -1,9 +1,9 @@
-const {Song} = require('../models')
+const {Quote} = require('../models')
 
 module.exports = {
   async index (req, res) {
     try {
-      let songs = null
+      let quotes = null
       const search = req.query.search
       if (search) {
         songs = await Song.findAll({
@@ -18,11 +18,11 @@ module.exports = {
           }
         })
       } else {
-        songs = await Song.findAll({
+        quotes = await Quote.findAll({
           limit: 10
         })
       }
-      res.send(songs)
+      res.send(quotes)
     } catch (err) {
       res.status(500).send({
         error: 'an error has occured trying to fetch the songs'
@@ -31,17 +31,17 @@ module.exports = {
   },
   async show (req, res) {
     try {
-      const song = await Song.findById(req.params.songId)
-      res.send(song)
+      const quote = await Song.findById(req.params.qno)
+      res.send(quote)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to show the songs'
+        error: 'an error has occured trying to show the Quote'
       })
     }
   },
   async post (req, res) {
     try {
-      const song = await Song.create(req.body)
+      const song = await Quote.create(req.body)
       res.send(song)
     } catch (err) {
       res.status(500).send({
@@ -53,7 +53,7 @@ module.exports = {
     try {
       await Song.update(req.body, {
         where: {
-          id: req.params.songId
+          qno: req.params.qno
         }
       })
       res.send(req.body)
