@@ -12,9 +12,8 @@ module.exports = {
       storage: path.resolve(__dirname, '../../db/quot18.db3')
     }
   }
-	/*,
+  /*,
   authentication: {
     jwtSecret: process.env.JWT_SECRET || 'secret'
   } */
 }
-
