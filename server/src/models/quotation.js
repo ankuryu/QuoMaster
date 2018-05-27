@@ -1,11 +1,11 @@
 /* JSHINT ES6 VERSION */
 module.exports = (sequelize, DataTypes) => {
-  const Song = sequelize.define('quotop',
+  const Quotop = sequelize.define('quotop',
 	  {
 	  id: { type: DataTypes.INTEGER,
 		  primaryKey: true
 	  },
-      qno: DataType.STRING,
+      qno: DataTypes.STRING,
       qdt: DataTypes.STRING,
       pname: DataTypes.STRING,
       paddr: DataTypes.STRING,
@@ -19,4 +19,5 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
     }
   )
+	return Quotop;
 }

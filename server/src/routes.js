@@ -27,6 +27,7 @@ module.exports = (app) => {
   app.delete('/quotes/:qno',
     QuotesController.remove)
 
+	/*
   app.get('/bookmarks',
     isAuthenticated,
     BookmarksController.index)
@@ -43,4 +44,5 @@ module.exports = (app) => {
   app.post('/histories',
     isAuthenticated,
     HistoriesController.post)
+	*/
 }

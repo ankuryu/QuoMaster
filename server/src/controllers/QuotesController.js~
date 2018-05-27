@@ -3,7 +3,7 @@ const {
 } = require('../models')
 
 module.exports = {
-    index(req, res, next) => {
+    index(req, res, next){
 
       Quotop.findAll({
         attributes: ['id', 'qno', 'qdt', 'pname']
@@ -19,7 +19,7 @@ module.exports = {
         //   console.log(qnew[0].qno);
         res.send(qnew);
       });
-    }),
+    },
   show(req, res, next) => {
     var qid = req.params.id;
     //  console.log(qid);

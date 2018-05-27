@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 	  id: { type: DataTypes.INTEGER,
 		  primaryKey: true
 	  },
-      qno: DataType.STRING,
+      qno: DataTypes.STRING,
       sr: DataTypes.STRING,
       desc: DataTypes.STRING,
       qty: DataTypes.DECIMAL,
@@ -22,4 +22,5 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false
     }
   )
+	return Quoitm ;
 }
