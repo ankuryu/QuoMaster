@@ -1,11 +1,11 @@
 const {
-  Quote
+  quotop
 } = require('../models')
 
 module.exports = {
     index(req, res, next){
 
-      Quotop.findAll({
+      quotop.findAll({
         attributes: ['id', 'qno', 'qdt', 'pname']
       }).then(quotes => {
         var qnew = [];
@@ -23,7 +23,7 @@ module.exports = {
   show(req, res, next)  {
     var qid = req.params.id;
     //  console.log(qid);
-    Quotop.findOne({
+    quotop.findOne({
         where: {
           "id": qid
         }
@@ -43,7 +43,7 @@ module.exports = {
     //	console.log('add route');
     //	console.log(quote);
     //  var qt2 = {qno:"00005",qdt:"2018-11-01",pname:"Maruti",paddr:"jango",enqno:"01",enqdt:"2018-11-01",qamt:0}
-    Quotop.create(quote).then(console.log("Added Quote"))
+    quotop.create(quote).then(console.log("Added Quote"))
     res.end('OK');
   },
   put(req, res, next)  {
@@ -53,7 +53,7 @@ module.exports = {
     	console.log(req.body);
     	*/
     quote = req.body;
-    Quotop.update(quote, {
+    quotop.update(quote, {
         where: {
           "id": qid
         }
@@ -68,7 +68,7 @@ module.exports = {
   remove(req, res, next)  {
     var qid = req.params.id;
     // console.log(qid);
-    Quotop.destroy({
+    quotop.destroy({
         where: {
           "id": qid
         }

@@ -1,5 +1,5 @@
 const {
-  Quote
+  Quotop
 } = require('../models')
 
 module.exports = {
@@ -20,7 +20,7 @@ module.exports = {
         res.send(qnew);
       });
     },
-  show(req, res, next) => {
+  show(req, res, next)  {
     var qid = req.params.id;
     //  console.log(qid);
     Quotop.findOne({
@@ -38,7 +38,7 @@ module.exports = {
         console.log(error);
       });
   },
-  post(req, res, next) => {
+  post(req, res, next)  {
     var quote = req.body;
     //	console.log('add route');
     //	console.log(quote);
@@ -46,7 +46,7 @@ module.exports = {
     Quotop.create(quote).then(console.log("Added Quote"))
     res.end('OK');
   },
-  put(req, res, next) => {
+  put(req, res, next)  {
     var qid = req.params.id;
     /*	console.log(req.params);
       console.log(qid);
@@ -65,7 +65,7 @@ module.exports = {
         console.log(error)
       });
   },
-  remove(req, res, next) => {
+  remove(req, res, next)  {
     var qid = req.params.id;
     // console.log(qid);
     Quotop.destroy({
