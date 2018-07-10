@@ -1,57 +1,51 @@
-const {Quote} = require('../models')
+const {Quoitm} = require('../models')
 
 module.exports = {
   async index (req, res) {
     try {
-      let quotes = null
-      const search = req.query.search
-      if (search) {
-        songs = await Song.findAll({
-          where: {
-            $or: [
-              'title', 'artist', 'genre', 'album'
-            ].map(key => ({
-              [key]: {
-                $like: `%${search}%`
-              }
-            }))
-          }
+      let items = null
+      const qno = req.query.qno
+      if (qno) {
+        songs = await Quoitm.findAll({
+          where: { qno:qno}
+                     
         })
+                 
       } else {
-        quotes = await Quote.findAll({
+        items = await Quoitm.findAll({
           limit: 10
         })
       }
       res.send(quotes)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to fetch the songs'
+        error: 'an error has occured trying to fetch the items'
       })
     }
   },
   async show (req, res) {
     try {
-      const quote = await Song.findById(req.params.qno)
-      res.send(quote)
+      const item = await Quoitm.findById(req.params.qno)
+      res.send(item)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to show the Quote'
+        error: 'an error has occured trying to get the item'
       })
     }
   },
   async post (req, res) {
     try {
-      const song = await Quote.create(req.body)
+      const song = await Quoitm.create(req.body)
       res.send(song)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to create the song'
+        error: 'an error has occured trying to create the item'
       })
     }
   },
   async put (req, res) {
     try {
-      await Song.update(req.body, {
+      await Quoitm.update(req.body, {
         where: {
           qno: req.params.qno
         }
@@ -59,7 +53,7 @@ module.exports = {
       res.send(req.body)
     } catch (err) {
       res.status(500).send({
-        error: 'an error has occured trying to update the song'
+        error: 'an error has occured trying to update the item'
       })
     }
   }
