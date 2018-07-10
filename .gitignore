@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.swp*
 *.lock*
 *.un~
@@ -5,3 +6,12 @@
 node_modules
 build
 dist
+=======
+
+node_modules
+build
+dist
+*.swp
+*.un~
+
+>>>>>>> 00250af062fcfe2c80987e88b07573b0e2841319

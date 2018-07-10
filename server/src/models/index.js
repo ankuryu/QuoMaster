@@ -2,8 +2,9 @@ const fs = require('fs')
 const path = require('path')
 const Sequelize = require('sequelize')
 const config = require('../config/config')
-const db = {}
 
+const db = {}
+config.db.options.storage = 'D:\Quomaster.git\server\db\quot18.db3'
 const sequelize = new Sequelize(
   config.db.database,
   config.db.user,
@@ -11,17 +12,21 @@ const sequelize = new Sequelize(
   config.db.options
 )
 
-fs
+/*  fs
   .readdirSync(__dirname)
   .filter((file) =>
     file !== 'index.js'
-  )
-  .forEach((file) => {
+  ) */
+
+ar = ['quoTc.js','quotation.js','quoItm.js'];
+
+  ar.forEach((file) => {
     const model = sequelize.import(path.join(__dirname, file))
+	  console.log(model);
     db[model.name] = model
   })
 
-/*Object.keys(db).forEach(function (modelName) {
+/* Object.keys(db).forEach(function (modelName) {
   if ('associate' in db[modelName]) {
     db[modelName].associate(db)
   }
