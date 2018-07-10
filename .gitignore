@@ -1,0 +1,7 @@
+*.swp*
+*.lock*
+*.un~
+*.*~
+node_modules
+build
+dist
