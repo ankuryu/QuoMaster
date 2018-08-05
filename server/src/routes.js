@@ -18,13 +18,13 @@ module.exports = (app) => {
 */
   app.get('/quotes',
     QuotesController.index)
-  app.get('/quotes/:qno',
+  app.get('/quotes/:id',
     QuotesController.show)
-  app.put('/quotes/:qno',
+  app.put('/quotes/:id',
     QuotesController.put)
   app.post('/quotes',
     QuotesController.post)
-  app.delete('/quotes/:qno',
+  app.delete('/quotes/:id',
     QuotesController.remove)
 
 	/*

@@ -1,13 +1,14 @@
 const {
-  quotop
+  Quotop
 } = require('../models')
 
 module.exports = {
     index(req, res, next){
 
-      quotop.findAll({
+      Quotop.findAll({
         attributes: ['id', 'qno', 'qdt', 'pname']
       }).then(quotes => {
+	      console.log(quotes);
         var qnew = [];
         for (i = 0; i < quotes.length; i++) {
           quo = quotes[i];
@@ -18,12 +19,15 @@ module.exports = {
         //   console.log("get quotations")
         //   console.log(qnew[0].qno);
         res.send(qnew);
+	      res.end('OK');
       });
     },
   show(req, res, next)  {
     var qid = req.params.id;
+	  console.log("qid",qid)
+	  console.log('reqparam',req.params);
     //  console.log(qid);
-    quotop.findOne({
+    Quotop.findOne({
         where: {
           "id": qid
         }
@@ -43,7 +47,7 @@ module.exports = {
     //	console.log('add route');
     //	console.log(quote);
     //  var qt2 = {qno:"00005",qdt:"2018-11-01",pname:"Maruti",paddr:"jango",enqno:"01",enqdt:"2018-11-01",qamt:0}
-    quotop.create(quote).then(console.log("Added Quote"))
+    Quotop.create(quote).then(console.log("Added Quote"))
     res.end('OK');
   },
   put(req, res, next)  {
@@ -53,7 +57,7 @@ module.exports = {
     	console.log(req.body);
     	*/
     quote = req.body;
-    quotop.update(quote, {
+    Quotop.update(quote, {
         where: {
           "id": qid
         }
@@ -68,7 +72,7 @@ module.exports = {
   remove(req, res, next)  {
     var qid = req.params.id;
     // console.log(qid);
-    quotop.destroy({
+    Quotop.destroy({
         where: {
           "id": qid
         }
