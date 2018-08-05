@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Quotop = sequelize.define('Quotop',
 	  {
 	  id: { type: DataTypes.INTEGER,
-		  primaryKey: true
+		  primaryKey: true,
+		  autoIncrement: true
 	  },
       qno: DataTypes.STRING,
       qdt: DataTypes.STRING,

@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Quotc = sequelize.define('quotc',
 	  {
 	  id: { type: DataTypes.INTEGER,
-		  primaryKey: true
+		  primaryKey: true,
+		  autoIncrement:true
 	  },
       qno: DataTypes.STRING,
       vld: DataTypes.DECIMAL,

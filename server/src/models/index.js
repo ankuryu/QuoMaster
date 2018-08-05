@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 const config = require('../config/config')
 
 const db = {}
-config.db.options.storage = 'D:\Quomaster.git\server\db\quo2t18.db3'
+config.db.options.storage = '../../db/quo2t18.db3'
 const sequelize = new Sequelize(
   config.db.database,
   config.db.user,

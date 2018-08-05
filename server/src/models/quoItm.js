@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   const Quoitm = sequelize.define('quoitm',
 	  {
 	  id: { type: DataTypes.INTEGER,
-		  primaryKey: true
+		  primaryKey: true,
+		  autoIncrement: true
 	  },
       qno: DataTypes.STRING,
       sr: DataTypes.STRING,
