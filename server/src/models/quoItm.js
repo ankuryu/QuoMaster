@@ -1,6 +1,6 @@
 /* JSHINT ES6 VERSION */
 module.exports = (sequelize, DataTypes) => {
-  const Quoitm = sequelize.define('quoitm',
+  const Quoitm = sequelize.define('Quoitm',
 	  {
 	  id: { type: DataTypes.INTEGER,
 		  primaryKey: true,

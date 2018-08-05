@@ -5,13 +5,7 @@ module.exports = {
     try {
       let items = null
       const qno = req.params.qno
-      if (qno) {
-        items = await Quoitm.findAll({
-          where: { qno:qno}
-        })
-      } else {
-        items = null 
-      }
+        items = await Quoitm.findAll()
       res.send(items)
     } catch (err) {
       res.status(500).send({
@@ -19,6 +13,18 @@ module.exports = {
       })
     }
   },
+	async additms (req,res) {
+		try{
+			const items = await Quoitm.bulkCreate( req.body)
+			res.send(items)
+			res.end('OK');
+		} catch(err) {
+			res.status(500).send({
+				error: 'an error has occured trying to upload bulk items'
+			})
+		}
+
+	},
   async show (req, res) {
     try {
       const item = await Quoitm.findById(req.params.id)
@@ -53,5 +59,16 @@ module.exports = {
         error: 'an error has occured trying to update the item'
       })
     }
-  }
+  },
+	async remove (req,res) {
+	try {
+	  await Quoitm.destroy({
+		  where : {qno: req.params.qno}
+	  
+	  }).then((response)=> {
+		  res.end('Ok')
+	  })
+	} catch(err){}
+
+	}
 }

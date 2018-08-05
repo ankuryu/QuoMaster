@@ -7,6 +7,9 @@ const HistoriesController = require('./controllers/HistoriesController')
 const isAuthenticated = require('./policies/isAuthenticated')
 */
 const QuotesController = require('./controllers/QuotesController.js')
+const ItemsController = require('./controllers/ItemsController.js');
+const TncController = require('./controllers/TncController.js');
+
 
 module.exports = (app) => {
   /*
@@ -16,17 +19,39 @@ module.exports = (app) => {
   app.post('/login',
     AuthenticationController.login)
 */
-  app.get('/quotes',
+  app.get('/api/quotes',
     QuotesController.index)
-  app.get('/quotes/:id',
+  app.get('/api/quotes/:id',
     QuotesController.show)
-  app.put('/quotes/:id',
+  app.put('/api/quotes/:id',
     QuotesController.put)
-  app.post('/quotes',
+  app.post('/api/quotes',
     QuotesController.post)
-  app.delete('/quotes/:id',
+  app.delete('/api/quotes/:id',
     QuotesController.remove)
 
+  app.get('/api/items',
+    ItemsController.index)
+  app.post('/api/items/add',
+   ItemsController.additms)
+  app.get('/api/items/:id',
+    ItemsController.put)
+  app.post('/api/items',
+    ItemsController.post)
+  app.delete('/api/items/:id',
+    ItemsController.remove)
+
+  app.get('/api/tnc',
+    TncController.index)
+  app.get('/api/tnc/:id',
+    TncController.show)
+  app.put('/api/tnc/:id',
+    TncController.put)
+  app.post('/api/tnc',
+    TncController.post)
+  /*app.delete('/api/tnc/:id',
+    TncController.remove)
+*/
 	/*
   app.get('/bookmarks',
     isAuthenticated,

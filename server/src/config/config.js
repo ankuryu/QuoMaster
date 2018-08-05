@@ -9,7 +9,7 @@ module.exports = {
     options: {
       dialect: process.env.DIALECT || 'sqlite',
       host: process.env.HOST || 'localhost',
-      storage:  '../../db/quot218.db3'
+      storage: path.resolve(__dirname, '../../db/quot218.db3')
     }
   }
 	//      storage: path.resolve(__dirname, '../../db/quot218.db3')
