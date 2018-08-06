@@ -6,7 +6,7 @@ module.exports = {
       let tnc = null
         tnc = await Quotc.findAll({
         })
-      res.send(quotes)
+      res.send(tnc)
 	res.end('Ok')
     } catch (err) {
       res.status(500).send({
@@ -16,7 +16,7 @@ module.exports = {
   },
   async show (req, res) {
     try {
-      const tnc= await Song.findById(req.params.id)
+      const tnc= await Quotc.findById(req.params.id)
       res.send(tnc)
     } catch (err) {
       res.status(500).send({
@@ -26,7 +26,7 @@ module.exports = {
   },
   async post (req, res) {
     try {
-      const tnc = await Quote.create(req.body)
+      const tnc = await Quotc.create(req.body)
       res.send(tnc)
     } catch (err) {
       res.status(500).send({

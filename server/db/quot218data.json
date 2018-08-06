@@ -1,0 +1,7 @@
+{"id":19,"qno":"00015","qdt":"2018-8-5","pname":"DalaiLama and Company","paddr":"Mumbai East","enqno":"3719","enqdt":"2018-08-08","tel":"022271313","email":"mumbai@dalailama.in"}
+
+
+[{"qno":"000100","sr":"01","desc":"G.I. Pipe C Class 15mm ","qty": 36,"rate":339,"disc":0,"tax":18.0,"cost":300,"fac":1,"incr":1,"nar":"bought from Jango"},
+{"qno":"000100","sr":"02","desc":"G.I. Pipe C Class 20mm ","qty": 36,"rate":439,"disc":0,"tax":18.0,"cost":400,"fac":1,"incr":1,"nar":"bought from Jango"}]
+
+{"qno":"", "vld":"", "vldunt":"","pmt":0,"pmtunt":"days","dlvtm":0,"dlvunt":"weeks","dlvloc":"Ex Godown","tax":18,"disc":0,"wrt":"wrt","nar":"narration"}
