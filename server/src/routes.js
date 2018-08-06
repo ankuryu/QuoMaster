@@ -38,7 +38,7 @@ module.exports = (app) => {
     ItemsController.put)
   app.post('/api/items',
     ItemsController.post)
-  app.delete('/api/items/:id',
+  app.delete('/api/items/:qno',
     ItemsController.remove)
 
   app.get('/api/tnc',
@@ -49,9 +49,9 @@ module.exports = (app) => {
     TncController.put)
   app.post('/api/tnc',
     TncController.post)
-  /*app.delete('/api/tnc/:id',
+  app.delete('/api/tnc/:qno',
     TncController.remove)
-*/
+
 	/*
   app.get('/bookmarks',
     isAuthenticated,
