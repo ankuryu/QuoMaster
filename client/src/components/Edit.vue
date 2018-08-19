@@ -26,7 +26,7 @@
       </div>
       <div class="form-group">
         <label>Phone</label>
-        <input type="text" class="form-control" placeholder="Phone" v-model="quote.phone">
+        <input type="text" class="form-control" placeholder="Phone" v-model="quote.tel">
       </div>
     </div>
 
@@ -80,7 +80,7 @@ var		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
           paddr: this.quote.paddr,
           enqno: this.quote.enqno,
           enqdt: this.quote.enqdt,
-          phone: this.quote.phone,
+          tel: this.quote.tel,
           email: this.quote.email,
           contact: this.quote.contact
         }
