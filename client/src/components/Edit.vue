@@ -6,16 +6,20 @@
     <div class="well">
       <h4>QuoteInfo</h4>
       <div class="form-group">
-        <label>Party Nsme</label>
+        <label>Party Name</label>
         <input type="text" class="form-control" placeholder="PartyName" v-model="quote.pname">
       </div>
       <div class="form-group">
-        <label>Addrese</label>
+        <label>Address</label>
         <input type="text" class="form-control" placeholder="Address" v-model="quote.paddr">
       </div>
     </div>
     <div class="well">
       <h4>Quote Contact</h4>
+            <div class="form-group">
+        <label>Contact Name</label>
+        <input type="text" class="form-control" placeholder="Contact Name" v-model="quote.contact">
+      </div>
       <div class="form-group">
         <label>Email</label>
         <input type="text" class="form-control" placeholder="Email" v-model="quote.email">
@@ -66,25 +70,29 @@ var		urladdr = "http://" + wh + wp  + "/api/quotes/" + id
         });
     },
     updateQuote(e) {
-      if (!this.quote.pname || !this.quote.paddr || !this.quote.email) {
+      if (!this.quote.pname || !this.quote.paddr) {
         this.alert = 'Please fill in all required fields';
       } else {
         let updQuote = {
+          qno: this.quote.qno,
+          qdt: this.quote.qdt,
           pname: this.quote.pname,
           paddr: this.quote.paddr,
+          enqno: this.quote.enqno,
+          enqdt: this.quote.enqdt,
           phone: this.quote.phone,
           email: this.quote.email,
-          enqno: this.quote.enqno,
-          enqdt: this.quote.enqdt
+          contact: this.quote.contact
         }
+        console.log(updQuote);
 	var vu = this ;
 var      wh = window.location.hostname ;
 var      wp = window.location.port ;
-	      wp : ":8000";
+	       wp = ":8000";
 var	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
        // this.$http.put('http://localhost:8000/api/quotes/' + this.$route.params.id, updQuote)
-
-	this.$http.put(urladdr, updQuote)     
+console.log(urladdr);
+	this.$http.put(urladdr, (updQuote))     
           .then(function(response) {
             vu.$router.push({
               path: '/',
@@ -92,8 +100,9 @@ var	urladdr = "http://" + wh + wp  + "/api/quotes/" + this.$route.params.id
                 alert: 'Quotation Updated'
               }
             });
+          }).catch( (error)=> {
+            console.log(error);
           });
-
         e.preventDefault();
       }
       e.preventDefault();

@@ -18,6 +18,11 @@
     </div>
     <div class="well">
       <h4>Customer Contact</h4>
+            <div class="form-group">
+        <label>Contact Name</label>
+        <input type="text" class="form-control" placeholder="Contact Name" v-model="quotation.contact">
+      </div>
+
       <div class="form-group">
         <label>Email</label>
         <input type="text" class="form-control" placeholder="Email" v-model="quotation.email">
@@ -73,7 +78,9 @@ export default {
           paddr: this.quotation.paddr,
           enqno: this.quotation.enqno,
           enqdt: this.quotation.enqdt,
-          qamt: 0,
+          tel: this.quotation.tel,
+          email: this.quotation.email,
+          contact:this.quotation.contact
         }
 	console.log(newQuotation);
        var vm = this;
