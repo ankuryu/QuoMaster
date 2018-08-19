@@ -84,8 +84,8 @@ export default {
 var	      wh = window.location.hostname ;
 var	      wp = window.location.port ;
 	      wp = ":8000"
-var	      urladdr = 'http://' + wh + wp + '/api/quote/add';
-	      //  vm.$http.post('http://localhost:8000/api/quote/add',(newQuotation) ) 
+var	      urladdr = 'http://' + wh + wp + '/api/quotes';
+	      //  vm.$http.post('http://localhost:8000/api/quotes',(newQuotation) ) 
 		
 		vm.$http.post(urladdr,(newQuotation))
           .then(function(response) {
