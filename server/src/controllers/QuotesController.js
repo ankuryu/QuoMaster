@@ -63,7 +63,8 @@ module.exports = {
         }
       })
       .then((response) => {
-        res.end('OK')
+        res.send(response);
+        res.end('OK');
       })
       .catch((error) => {
         console.log(error)
